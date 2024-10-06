@@ -4,6 +4,7 @@ import Config from "@/config";
 import Head from "next/head";
 import Image from "next/image";
 import heartIcon from "./images/heart.svg";
+import WebTitle from "@/components/webTitle";
 
 export default function Home() {
 	
@@ -19,16 +20,8 @@ export default function Home() {
 				<meta name="author" content="Hiepnx" />
 			</Head>
 			<header className="header">
-				<div className="header-title great-vibes">
-					{Config.menName}
-					&nbsp;&nbsp;
-					<Image
-						priority
-						src={heartIcon}
-						alt="Love"
-					/>
-					&nbsp;&nbsp;
-					{Config.womenName}
+				<div className="header-bg">
+					<WebTitle size={35} />
 				</div>
 				<div className="menu">
 					<a>Cặp đôi</a>
