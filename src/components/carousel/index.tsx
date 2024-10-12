@@ -20,11 +20,13 @@ const MyCarousel = () => {
     if(!loaded) {
         return <LoadingWidget />
     }
+    const carouselHeight = window.innerHeight - 200;
     const props: ReactElasticCarouselProps = {
         isRTL: false,
         showArrows: true,
         enableSwipe: false,
         enableMouseSwipe: false,
+        pagination: false,
         // autoPlaySpeed: 5000,
         // enableAutoPlay: true,
         renderArrow: (props) => {
@@ -59,7 +61,7 @@ const MyCarousel = () => {
                         return (
                             <div key={'item-' + item} className='banner-carousel-item'>
                                 <div className='banner-slider'>
-                                    <Image src={require(`../../app/images/photo${item}.jpg`)} alt={'Photo ' + item} style={{ width: '100%', height: 800, objectFit: 'cover' }} />
+                                    <Image src={require(`../../app/images/photo${item}.jpg`)} alt={'Photo ' + item} style={{ width: '100%', height: carouselHeight, objectFit: 'cover' }} />
                                 </div>
                             </div>
                         );

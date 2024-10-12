@@ -1,39 +1,60 @@
 
 import MyCarousel from "@/components/carousel";
 import Config from "@/config";
-import Head from "next/head";
-import Image from "next/image";
-import heartIcon from "./images/heart.svg";
 import WebTitle from "@/components/webTitle";
+import { Metadata } from "next";
+import StaticWidgets from "@/components/staticWidget";
+import CoupleWidget from "@/components/coupleWidget";
+import Space from "@/components/space";
+import WeddingEvent from "@/components/weddingEvent";
+import Guestbook from "@/components/guestbook";
+import { Album } from "@mui/icons-material";
+import HappyWedding from "@/components/happyWedding";
+import Thanks from "@/components/thanks";
+
+export const metadata: Metadata = {
+	title: Config.title,
+	description: Config.description,
+	keywords: [Config.title, Config.description].join(' ').toLowerCase(),
+	authors: {
+		name: "Hiepnx",
+		url: "https://github.com/nxhiep"
+	},
+	
+}
 
 export default function Home() {
 	
 	return (
 		<body>
-			<Head>
-				<title>{Config.title}</title>
-				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-				<meta charSet="UTF-8" />
-				<meta name="title" content={Config.title} />
-				<meta name="description" content={Config.description} />
-				<meta name="keywords" content={[Config.title, Config.description].join(' ').toLowerCase()} />
-				<meta name="author" content="Hiepnx" />
-			</Head>
 			<header className="header">
 				<div className="header-bg">
 					<WebTitle size={35} />
 				</div>
 				<div className="menu">
-					<a>Cặp đôi</a>
-					<a>Sự kiện cưới</a>
-					<a>Album Hình Cưới</a>
-					<a>Sổ Lưu Bút</a>
-					<a>Mừng cưới</a>
+					<a href="#CoupleWidget">Cặp đôi</a>
+					<a href="#WeddingEvent">Sự kiện cưới</a>
+					<a href="#Album">Album Hình Cưới</a>
+					<a href="#Guestbook">Sổ Lưu Bút</a>
+					<a href="#HappyWedding">Mừng cưới</a>
 				</div>
 			</header>
 			<main className="main">
 				<MyCarousel />
+				<Space />
+				<CoupleWidget />
+				<Space />
+				<WeddingEvent />
+				<Space />
+				<Album />
+				<Space />
+				<Guestbook />
+				<Space />
+				<HappyWedding />
+				<Space />
+				<Thanks />
 			</main>
+			<StaticWidgets />
 			<footer className="footer">
 				Footer
 			</footer>

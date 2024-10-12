@@ -7,11 +7,11 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 const WebTitle:FC<({ size: number, color?: string })> = ({ size, color }) => {
     return (
         <div className="header-title great-vibes" style={{ fontSize: size, color: color ?? 'black' }}>
-            {Config.menName}
+            {Config.groomFamily.shortName}
             &nbsp;&nbsp;
             <FavoriteIcon fontSize="large" color="error" />
             &nbsp;&nbsp;
-            {Config.womenName}
+            {Config.brideFamily.shortName}
         </div>
     );
 }
