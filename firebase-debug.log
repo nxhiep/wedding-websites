@@ -1,0 +1,21 @@
+[debug] [2024-10-13T13:03:35.002Z] ----------------------------------------------------------------------
+[debug] [2024-10-13T13:03:35.004Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-10-13T13:03:35.005Z] CLI Version:   13.22.0
+[debug] [2024-10-13T13:03:35.005Z] Platform:      win32
+[debug] [2024-10-13T13:03:35.005Z] Node Version:  v20.12.2
+[debug] [2024-10-13T13:03:35.005Z] Time:          Sun Oct 13 2024 20:03:35 GMT+0700 (GMT+07:00)
+[debug] [2024-10-13T13:03:35.005Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-13T13:03:35.011Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-13T13:03:35.011Z] > authorizing via signed-in user (hiepnx27@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Admin\workspace\js\wedding-websites
+
