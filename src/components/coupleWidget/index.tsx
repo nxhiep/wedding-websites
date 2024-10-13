@@ -8,14 +8,15 @@ import groomImage from "../..//app/images/groom.jpg";
 import brideImage from "../..//app/images/bride.jpg";
 
 const CoupleWidget = () => {
+    console.log('CoupleWidget')
     return (
         <div id="CoupleWidget">
             <MyTitle 
                 title="Cặp đôi"
                 description="Tình yêu là điều kiện trong đó hạnh phúc của đối phương là điều cần thiết cho chính bạn."
             />
-            <Grid2 container>
-                <Grid2 size={6}>
+            <Grid2 container alignItems={'stretch'}>
+                <Grid2 size={{ xs: 12, sm: 12, md: 6 }}>
                     <UserItem
                         userName={Config.groomFamily.name}
                         fatherName={Config.groomFamily.father}
@@ -26,7 +27,7 @@ const CoupleWidget = () => {
                         description={`Chàng trai điềm đạm, chín chắn và đầy nhiệt huyết trong công việc. Với tính cách hòa nhã và lạc quan, ${Config.groomFamily.shortName} luôn là người mang lại năng lượng tích cực cho những người xung quanh. Anh không chỉ thành công trong sự nghiệp mà còn rất biết cách chăm sóc và bảo vệ những người thân yêu. Trong mắt ${Config.brideFamily.shortName}, ${Config.groomFamily.shortName} là một bờ vai vững chắc, luôn sẵn sàng sẻ chia và hỗ trợ cô trong mọi hoàn cảnh.`}
                     />
                 </Grid2>
-                <Grid2 size={6}>
+                <Grid2 size={{ xs: 12, sm: 12, md: 6 }}>
                     <UserItem
                         userName={Config.brideFamily.name}
                         fatherName={Config.brideFamily.father}
@@ -46,12 +47,12 @@ const UserItem:FC<({ userName: string, imageUrl: any, fatherName: string, mother
     userName, description, facebookUrl, fatherName, imageUrl, motherName, place
 }) => {
     return (
-        <Box sx={{ width: '100%', borderRight: place === 'left' ? '2px solid #ddd' : undefined, backgroundColor: '#f5f4ec' }}>
+        <Box sx={{ width: '100%', height: '100%', borderRight: place === 'left' ? '2px solid #ddd' : undefined, backgroundColor: '#f5f4ec' }}>
             <Grid2 container direction={place === 'left' ? 'row' : 'row-reverse'}>
-                <Grid2 size={6}>
-                    <Image src={imageUrl} alt={userName} width={0} style={{ width: '100%' }} />
+                <Grid2 size={{ xs: 12, sm: 12, md: 12, lg: 6 }}>
+                    <Image src={imageUrl} alt={userName} style={{ width: '100%', height: 'auto', objectFit: 'cover' }} priority />
                 </Grid2>
-                <Grid2 size={6} sx={{ padding: 5, textAlign: place === 'left' ? 'right' : 'left' }}>
+                <Grid2 size={{ xs: 12, sm: 12, md: 12, lg: 6 }} sx={{ padding: 5, textAlign: place === 'left' ? 'right' : 'left' }}>
                     <div className="great-vibes" style={{ fontSize: 26, marginBottom: 20 }}>{userName}</div>
                     <div>
                         <span>Con ông: </span>

@@ -24,7 +24,7 @@ body {
   font-style: normal;
 }
 
-.playfair-display {
+.playfair-display, .playfair-display > * {
   font-family: "Playfair Display", system-ui, serif, sans-serif, Arial, Helvetica;
   font-optical-sizing: auto;
   font-style: normal;
@@ -172,4 +172,16 @@ a {
   font-size: 16px;
   max-width: 400px;
   margin: auto;
+}
+
+.guestbook-text-style {
+  font-size: 16px;
+  color: 'black';
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.guestbook-text-style::placeholder, 
+.guestbook-text-style::-ms-input-placeholder  {
+  color: 'grey';
 }

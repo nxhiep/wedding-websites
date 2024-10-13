@@ -61,7 +61,7 @@ const MyCarousel = () => {
                         return (
                             <div key={'item-' + item} className='banner-carousel-item'>
                                 <div className='banner-slider'>
-                                    <Image src={require(`../../app/images/photo${item}.jpg`)} alt={'Photo ' + item} style={{ width: '100%', height: carouselHeight, objectFit: 'cover' }} />
+                                    <Image src={require(`../../app/images/photo${item}.jpg`)} alt={'Photo ' + item} style={{ width: '100%', height: carouselHeight, objectFit: 'cover' }} priority />
                                 </div>
                             </div>
                         );

@@ -8,9 +8,9 @@ import CoupleWidget from "@/components/coupleWidget";
 import Space from "@/components/space";
 import WeddingEvent from "@/components/weddingEvent";
 import Guestbook from "@/components/guestbook";
-import { Album } from "@mui/icons-material";
 import HappyWedding from "@/components/happyWedding";
 import Thanks from "@/components/thanks";
+import Album from "@/components/album";
 
 export const metadata: Metadata = {
 	title: Config.title,
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-	
+	console.log(1111111)
 	return (
 		<body>
 			<header className="header">

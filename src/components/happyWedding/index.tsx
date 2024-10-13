@@ -1,7 +1,6 @@
 import MyTitle from "../myTitle";
 
 const HappyWedding = () => {
-
     return (
         <div id="HappyWedding">
             <MyTitle
