@@ -11,6 +11,7 @@ import Guestbook from "@/components/guestbook";
 import HappyWedding from "@/components/happyWedding";
 import Thanks from "@/components/thanks";
 import Album from "@/components/album";
+import MyAudioPlayer from "@/components/audioPlayer";
 
 export const metadata: Metadata = {
 	title: Config.title,
@@ -24,7 +25,6 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
-	console.log(1111111)
 	return (
 		<body>
 			<header className="header">
@@ -40,6 +40,7 @@ export default function Home() {
 				</div>
 			</header>
 			<main className="main">
+				<MyAudioPlayer />
 				<MyCarousel />
 				<Space />
 				<CoupleWidget />

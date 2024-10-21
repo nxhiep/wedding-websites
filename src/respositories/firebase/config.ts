@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getStorage  } from "firebase/storage";
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -12,4 +13,5 @@ const firebaseConfig = {
 };
 const firebaseApp = initializeApp(firebaseConfig);
 const firebaseFireStore = getFirestore(firebaseApp);
-export { firebaseApp, firebaseFireStore };
+const firebaseStorage = getStorage(firebaseApp, 'gs://wedding-website-835af.appspot.com');
+export { firebaseApp, firebaseFireStore, firebaseStorage };

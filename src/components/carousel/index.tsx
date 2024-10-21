@@ -28,7 +28,7 @@ const MyCarousel = () => {
         enableMouseSwipe: false,
         pagination: false,
         // autoPlaySpeed: 5000,
-        // enableAutoPlay: true,
+        enableAutoPlay: true,
         renderArrow: (props) => {
             return (
                 <div style={{
@@ -57,7 +57,7 @@ const MyCarousel = () => {
         <div style={{ position: 'relative' }}>
             <StyleSheetManager shouldForwardProp={isPropValid}>
                 <Carousel {...props}>
-                    {[1, 2, 3, 4, 5, 6].map(item => {
+                    {[1, 2, 3].map(item => {
                         return (
                             <div key={'item-' + item} className='banner-carousel-item'>
                                 <div className='banner-slider'>
