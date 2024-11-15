@@ -2,7 +2,6 @@
 
 import { FireStorageRepo } from "@/respositories/firebase/storage";
 import { PauseCircle, PlayCircle } from "@mui/icons-material";
-import { Button } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
 const MyAudioPlayer = () => {
@@ -15,7 +14,7 @@ const MyAudioPlayer = () => {
                 if(ref.current) {
                     ref.current.src = url;
                     ref.current.load();
-                    ref.current.play().catch((e) => setTurnOnButton(true));
+                    ref.current.play().catch(() => setTurnOnButton(true));
                 }
             });
         }
@@ -31,7 +30,7 @@ const MyAudioPlayer = () => {
             />
             { turnOnButton && (
                 <div style={{ position: 'fixed', bottom: 40, left: 40, zIndex: 1, color: 'blue', cursor: 'pointer' }} onClick={() => {
-                    let value = !playing;
+                    const value = !playing;
                     setPlaying(value);
                     if(value) {
                         ref.current?.play();

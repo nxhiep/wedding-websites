@@ -1,16 +1,16 @@
 'use client'
 
-import isPropValid from '@emotion/is-prop-valid';
-import Image from 'next/image';
-import Carousel, { ReactElasticCarouselProps } from 'react-elastic-carousel';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { StyleSheetManager } from 'styled-components';
-import WebTitle from '../webTitle';
 import Config from '@/config';
-import Countdown from 'react-countdown';
+import isPropValid from '@emotion/is-prop-valid';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import Countdown from 'react-countdown';
+import Carousel, { ReactElasticCarouselProps } from 'react-elastic-carousel';
+import { StyleSheetManager } from 'styled-components';
 import LoadingWidget from '../loadingWidget';
+import WebTitle from '../webTitle';
 
 const MyCarousel = () => {
     const [loaded, setLoaded] = useState(false);
@@ -58,10 +58,11 @@ const MyCarousel = () => {
             <StyleSheetManager shouldForwardProp={isPropValid}>
                 <Carousel {...props}>
                     {[1, 2, 3, 4].map(item => {
+                        const imageData = require(`../../app/images/photo${item}.jpg`);
                         return (
                             <div key={'item-' + item} className='banner-carousel-item'>
                                 <div className='banner-slider'>
-                                    <Image src={require(`../../app/images/photo${item}.jpg`)} alt={'Photo ' + item} style={{ width: '100%', height: carouselHeight, objectFit: 'cover' }} priority />
+                                    <Image src={imageData} alt={'Photo ' + item} style={{ width: '100%', height: carouselHeight, objectFit: 'cover' }} priority />
                                 </div>
                             </div>
                         );

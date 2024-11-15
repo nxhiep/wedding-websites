@@ -1,14 +1,14 @@
-import { Box, Grid2 } from "@mui/material";
-import MyTitle from "../myTitle";
-import { CSSProperties, FC } from "react";
-import Image from "next/image";
-import FacebookIcon from '@mui/icons-material/Facebook';
 import Config from "@/config";
-import groomImage from "../..//app/images/groom.jpg";
-import brideImage from "../..//app/images/bride.jpg";
+import FacebookIcon from '@mui/icons-material/Facebook';
+import { Box, Grid2 } from "@mui/material";
+import Image, { StaticImageData } from "next/image";
+import { FC } from "react";
+import brideImage from "../../app/images/bride.jpg";
+import groomImage from "../../app/images/groom.jpg";
+import MyTitle from "../myTitle";
 
 const CoupleWidget = () => {
-    console.log('CoupleWidget')
+    // console.log('CoupleWidget')
     return (
         <div id="CoupleWidget">
             <MyTitle 
@@ -43,7 +43,7 @@ const CoupleWidget = () => {
     );
 }
 
-const UserItem:FC<({ userName: string, imageUrl: any, fatherName: string, motherName: string, description: string, facebookUrl: string, place: 'left' | 'right' })> = ({
+const UserItem:FC<({ userName: string, imageUrl: StaticImageData, fatherName: string, motherName: string, description: string, facebookUrl: string, place: 'left' | 'right' })> = ({
     userName, description, facebookUrl, fatherName, imageUrl, motherName, place
 }) => {
     return (

@@ -1,6 +1,6 @@
-import { addDoc, collection, doc, getDocs, setDoc } from "firebase/firestore"
-import { firebaseFireStore } from "./config"
 import Review from "@/models/review";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { firebaseFireStore } from "./config";
 const getReviews = async () => {
     const reviews = await getDocs(collection(firebaseFireStore, Review.table));
     return reviews.docs.map((item) => new Review(item.data()));

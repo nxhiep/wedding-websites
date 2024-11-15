@@ -1,6 +1,6 @@
+import Config from "@/config";
 import type { Metadata } from "next";
 import "./globals.css";
-import Config from "@/config";
 
 export const metadata: Metadata = {
 	title: Config.title,
