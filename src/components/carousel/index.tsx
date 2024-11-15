@@ -57,7 +57,7 @@ const MyCarousel = () => {
         <div style={{ position: 'relative' }}>
             <StyleSheetManager shouldForwardProp={isPropValid}>
                 <Carousel {...props}>
-                    {[1, 2, 3].map(item => {
+                    {[1, 2, 3, 4].map(item => {
                         return (
                             <div key={'item-' + item} className='banner-carousel-item'>
                                 <div className='banner-slider'>

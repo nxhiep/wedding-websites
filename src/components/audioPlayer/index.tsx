@@ -10,13 +10,15 @@ const MyAudioPlayer = () => {
     const [playing, setPlaying] = useState(false);
     const [turnOnButton, setTurnOnButton] = useState(false);
     useEffect(() => {
-        FireStorageRepo.getAudioUrl().then((url) => {
-            if(ref.current) {
-                ref.current.src = url;
-                ref.current.load();
-                ref.current.play().catch((e) => setTurnOnButton(true));
-            }
-        });
+        if(!window.location.host.includes('localhost')) {
+            FireStorageRepo.getAudioUrl().then((url) => {
+                if(ref.current) {
+                    ref.current.src = url;
+                    ref.current.load();
+                    ref.current.play().catch((e) => setTurnOnButton(true));
+                }
+            });
+        }
     }, []);
     
     return (
