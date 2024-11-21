@@ -1,9 +1,9 @@
 'use client'
 
 import { FireStorageRepo } from "@/respositories/firebase/storage";
-import { PauseCircle, PlayCircle } from "@mui/icons-material";
-import { Button } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 const MyAudioPlayer = () => {
     const ref = useRef<HTMLAudioElement | null>(null);
@@ -14,7 +14,12 @@ const MyAudioPlayer = () => {
             if(ref.current) {
                 ref.current.src = url;
                 ref.current.load();
-                ref.current.play().catch((e) => setTurnOnButton(true));
+                ref.current.play()
+                .then(() => setPlaying(true))
+                .catch((e) => {
+                    setTurnOnButton(true);
+                    setPlaying(true);
+                });
             }
         });
     }, []);
@@ -36,7 +41,7 @@ const MyAudioPlayer = () => {
                     } else {
                         ref.current?.pause();
                     }
-                }}>{playing ? <PauseCircle color="inherit" fontSize="large" /> : <PlayCircle color="inherit" fontSize="large" />}</div>
+                }}>{playing ? <VolumeUpIcon color="inherit" fontSize="large" /> : <VolumeOffIcon color="inherit" fontSize="large" />}</div>
             ) }
         </>
     );
