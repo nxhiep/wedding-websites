@@ -1,8 +1,6 @@
 import Config from "@/config";
-import Image from "next/image";
-import heartIcon from "../app/images/heart.svg";
-import { FC } from "react";
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { FC } from "react";
 
 const WebTitle:FC<({ size: number, color?: string })> = ({ size, color }) => {
     return (

@@ -34,7 +34,7 @@ const MyAudioPlayer = () => {
             />
             { turnOnButton && (
                 <div style={{ position: 'fixed', bottom: 40, left: 40, zIndex: 1, color: 'blue', cursor: 'pointer' }} onClick={() => {
-                    let value = !playing;
+                    const value = !playing;
                     setPlaying(value);
                     if(value) {
                         ref.current?.play();
