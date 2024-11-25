@@ -2,7 +2,7 @@
 
 import Config from "@/config";
 import FacebookIcon from '@mui/icons-material/Facebook';
-import { Box, Grid2, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Container, Grid2, useMediaQuery, useTheme } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import { FC } from "react";
 import MyTitle from "../myTitle";
@@ -15,30 +15,32 @@ const CoupleWidget = () => {
                 title="Cặp đôi"
                 description="Tình yêu là điều kiện trong đó hạnh phúc của đối phương là điều cần thiết cho chính bạn."
             />
-            <Grid2 container alignItems={'stretch'}>
-                <Grid2 size={{ md: 12, lg: 6, xl: 6 }}>
-                    <UserItem
-                        userName={Config.groomFamily.name}
-                        fatherName={Config.groomFamily.father}
-                        motherName={Config.groomFamily.mother}
-                        facebookUrl={Config.groomFamily.facebookUrl}
-                        place="left"
-                        imageUrl={ImagesConfig.groom}
-                        description={`Chàng trai điềm đạm, chín chắn và đầy nhiệt huyết trong công việc. Với tính cách hòa nhã và lạc quan, ${Config.groomFamily.shortName} luôn là người mang lại năng lượng tích cực cho những người xung quanh. Anh không chỉ thành công trong sự nghiệp mà còn rất biết cách chăm sóc và bảo vệ những người thân yêu. Trong mắt ${Config.brideFamily.shortName}, ${Config.groomFamily.shortName} là một bờ vai vững chắc, luôn sẵn sàng sẻ chia và hỗ trợ cô trong mọi hoàn cảnh.`}
-                    />
+            {/* <Container maxWidth='xl'> */}
+                <Grid2 container alignItems={'stretch'}>
+                    <Grid2 size={{ md: 12, lg: 6, xl: 6 }}>
+                        <UserItem
+                            userName={Config.groomFamily.name}
+                            fatherName={Config.groomFamily.father}
+                            motherName={Config.groomFamily.mother}
+                            facebookUrl={Config.groomFamily.facebookUrl}
+                            place="left"
+                            imageUrl={ImagesConfig.groom}
+                            description={`Chàng trai điềm đạm, chín chắn và đầy nhiệt huyết trong công việc. Với tính cách hòa nhã và lạc quan, ${Config.groomFamily.shortName} luôn là người mang lại năng lượng tích cực cho những người xung quanh. Anh không chỉ thành công trong sự nghiệp mà còn rất biết cách chăm sóc và bảo vệ những người thân yêu. Trong mắt ${Config.brideFamily.shortName}, ${Config.groomFamily.shortName} là một bờ vai vững chắc, luôn sẵn sàng sẻ chia và hỗ trợ cô trong mọi hoàn cảnh.`}
+                        />
+                    </Grid2>
+                    <Grid2 size={{ md: 12, lg: 6, xl: 6 }}>
+                        <UserItem
+                            userName={Config.brideFamily.name}
+                            fatherName={Config.brideFamily.father}
+                            motherName={Config.brideFamily.mother}
+                            facebookUrl={Config.brideFamily.facebookUrl}
+                            place="right"
+                            imageUrl={ImagesConfig.bride}
+                            description={`Cô gái dịu dàng, thông minh và đầy tinh tế. Với nụ cười tươi tắn và đôi mắt biết nói, ${Config.brideFamily.shortName} luôn tạo được thiện cảm với mọi người ngay từ lần đầu gặp gỡ. Cô không chỉ giỏi giang trong công việc mà còn rất quan tâm đến gia đình và những người xung quanh. Trong mắt ${Config.groomFamily.shortName}, ${Config.brideFamily.shortName} là người phụ nữ của sự ấm áp và yêu thương, luôn mang lại cảm giác an toàn và hạnh phúc.`}
+                        />
+                    </Grid2>
                 </Grid2>
-                <Grid2 size={{ md: 12, lg: 6, xl: 6 }}>
-                    <UserItem
-                        userName={Config.brideFamily.name}
-                        fatherName={Config.brideFamily.father}
-                        motherName={Config.brideFamily.mother}
-                        facebookUrl={Config.brideFamily.facebookUrl}
-                        place="right"
-                        imageUrl={ImagesConfig.bride}
-                        description={`Cô gái dịu dàng, thông minh và đầy tinh tế. Với nụ cười tươi tắn và đôi mắt biết nói, ${Config.brideFamily.shortName} luôn tạo được thiện cảm với mọi người ngay từ lần đầu gặp gỡ. Cô không chỉ giỏi giang trong công việc mà còn rất quan tâm đến gia đình và những người xung quanh. Trong mắt ${Config.groomFamily.shortName}, ${Config.brideFamily.shortName} là người phụ nữ của sự ấm áp và yêu thương, luôn mang lại cảm giác an toàn và hạnh phúc.`}
-                    />
-                </Grid2>
-            </Grid2>
+            {/* </Container> */}
         </div>
     );
 }

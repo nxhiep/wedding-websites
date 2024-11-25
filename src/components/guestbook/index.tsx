@@ -64,7 +64,7 @@ const Guestbook = () => {
         <div id="Guestbook">
             <MyTitle
                 title="Sổ lưu bút"
-                description="xxx"
+                description="Cảm ơn bạn rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất đến đám cưới của Xuân Hiệp và Ngọc Anh"
             />
             <Container>
                 <Grid2 container spacing={2} alignItems={'stretch'} height={400}>
@@ -98,7 +98,7 @@ const Guestbook = () => {
 
 const ListReview:FC<{reviews: Review[]}> = ({ reviews }) => {
     return (
-        <List style={{ overflowY: 'auto' }}>
+        <List style={{ overflowY: 'auto' }} className="scroll">
             { reviews.map((item, index) => {
                 return (
                     <ListItem key={'review-item-' + index} style={{ borderBottom: '1px solid #ddd' }}>

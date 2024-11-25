@@ -15,22 +15,22 @@ const WeddingEvent = () => {
                 description="...tình yêu không phải là nhìn chằm chằm vào nhau, mà là nhìn chằm chằm về cùng một hướng..."
             />
             <Grid2 container alignItems={'stretch'} justifyContent={'center'} spacing={2}>
-                <Grid2 size={{ xs: 5, xl: 2 }}>
+                <Grid2 size={{ xs: 5, xl: 3 }} justifyContent={'center'} alignItems={'center'} display={'flex'}>
                     <EventItem 
                         title="Tiệc cưới nhà gái"
-                        address="xxx"
+                        address="Số 14, Ngách 1, Ngõ 137, Đường Lê Văn Tám, Phường Đồng Tâm, TP Yên Bái"
                         date="9h00 - 01/01/2025"
                         image={ImagesConfig.events[1]}
-                        addressMap=""
+                        addressMap="https://maps.app.goo.gl/7smS2h2FC45g5QYv5"
                     />
                 </Grid2>
-                <Grid2 size={{ xs: 5, xl: 2 }}>
+                <Grid2 size={{ xs: 5, xl: 3 }} justifyContent={'center'} alignItems={'center'} display={'flex'}>
                     <EventItem 
                         title="Tiệc cưới nhà trai"
                         address="Số 4/134 Đại Khối, Phường Đông Cương, TP Thanh Hoá"
                         date="9h00 - 03/01/2025"
                         image={ImagesConfig.events[0]}
-                        addressMap=""
+                        addressMap="https://maps.app.goo.gl/4D4JCXXdnZ32ERf87"
                     />
                 </Grid2>
             </Grid2>
@@ -45,11 +45,11 @@ const EventItem: FC<({
 }) => {
     return (
         <div className="event-item">
-            <Image src={image} width={400} height={400} alt='Sự kiện nhà gái' style={{ width: '100%', height: '50%', borderRadius: 12 }} />
-            <div>{title}</div>
-            <div><PlaceIcon />{address}</div>
-            <div><ScheduleIcon />{date}</div>
-            <div>
+            <Image src={image} width={400} height={400} alt='Sự kiện nhà gái' style={{ width: 250, height: 250, borderRadius: 12, marginBottom: 12 }} />
+            <div style={{ fontSize: 20, textTransform: 'uppercase', fontWeight: 'bold', marginBottom: 12 }}>{title}</div>
+            <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 12, fontWeight: '500', minHeight: 65 }}><PlaceIcon />{address}</div>
+            <div style={{ display: 'inline-flex', alignItems: 'flex-start', marginBottom: 12, textAlign: 'center', fontWeight: 'bold', }}><ScheduleIcon />{date}</div>
+            <div >
                 <a href={addressMap} target="_blank">XEM ĐỊA CHỈ</a>
             </div>
         </div>

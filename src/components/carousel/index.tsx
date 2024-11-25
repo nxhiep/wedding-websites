@@ -9,9 +9,9 @@ import { useEffect, useState } from 'react';
 import Countdown from 'react-countdown';
 import Carousel, { ReactElasticCarouselProps } from 'react-elastic-carousel';
 import { StyleSheetManager } from 'styled-components';
+import { ImagesConfig } from '../../config/images';
 import LoadingWidget from '../loadingWidget';
 import WebTitle from '../webTitle';
-import { ImagesConfig } from '../../config/images';
 
 const MyCarousel = () => {
     const [loaded, setLoaded] = useState(false);
@@ -30,7 +30,6 @@ const MyCarousel = () => {
     if(!loaded) {
         return <LoadingWidget />
     }
-    const carouselWidth = width;
     const carouselHeight = width * 2 / 5;
     const props: ReactElasticCarouselProps = {
         isRTL: false,
@@ -39,6 +38,7 @@ const MyCarousel = () => {
         enableMouseSwipe: false,
         pagination: false,
         // autoPlaySpeed: 5000,
+        
         enableAutoPlay: true,
         renderArrow: (props) => {
             return (
