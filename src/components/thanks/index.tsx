@@ -1,13 +1,19 @@
+import Menu from "../menu";
 import MyTitle from "../myTitle";
 
 const Thanks = () => {
 
     return (
         <div id="Thanks">
-            <MyTitle
-                title="Thanks You"
-                description="Thanks You"
-            />
+            <div className="bg"></div>
+            <div className="content">
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div id="heart"></div>
+                </div>
+                <h1>Thank You!</h1>
+                <h1>Xuân Hiệp - Ngọc Anh</h1>
+                <Menu />
+            </div>
         </div>
     );
 }

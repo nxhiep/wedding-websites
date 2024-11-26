@@ -9,18 +9,28 @@ import { useEffect, useState } from 'react';
 import Countdown from 'react-countdown';
 import Carousel, { ReactElasticCarouselProps } from 'react-elastic-carousel';
 import { StyleSheetManager } from 'styled-components';
+import { ImagesConfig } from '../../config/images';
 import LoadingWidget from '../loadingWidget';
 import WebTitle from '../webTitle';
 
 const MyCarousel = () => {
     const [loaded, setLoaded] = useState(false);
+    const [width, setWidth] = useState<number>(1000);
     useEffect(() => {
         setLoaded(true);
+        setWidth(window.innerWidth);
+        const onResize = (e: Event) => {
+            setWidth(window.innerWidth);
+        }
+        window.addEventListener('resize', onResize);
+        return () => {
+            window.removeEventListener('resize', onResize);
+        }
     }, []);
     if(!loaded) {
         return <LoadingWidget />
     }
-    const carouselHeight = window.innerHeight - 200;
+    const carouselHeight = width * 2 / 5;
     const props: ReactElasticCarouselProps = {
         isRTL: false,
         showArrows: true,
@@ -28,6 +38,7 @@ const MyCarousel = () => {
         enableMouseSwipe: false,
         pagination: false,
         // autoPlaySpeed: 5000,
+        
         enableAutoPlay: true,
         renderArrow: (props) => {
             return (
@@ -42,7 +53,7 @@ const MyCarousel = () => {
                     justifyContent: 'center',
                     cursor: 'pointer',
                     left: props.type === 'PREV' ? 0 : undefined,
-                    right: props.type === 'NEXT' ? 0 : undefined
+                    right: props.type === 'NEXT' ? 0 : undefined,
                 }} onClick={props.onClick}>
                     {props.type === 'NEXT' ? (
                         <ArrowForwardIosIcon color='inherit' />
@@ -57,12 +68,11 @@ const MyCarousel = () => {
         <div style={{ position: 'relative' }}>
             <StyleSheetManager shouldForwardProp={isPropValid}>
                 <Carousel {...props}>
-                    {[1, 2, 3, 4].map(item => {
-                        const imageData = require(`../../app/images/photo${item}.jpg`);
+                    {ImagesConfig.slides.map(imageUrl => {
                         return (
-                            <div key={'item-' + item} className='banner-carousel-item'>
+                            <div key={'item-' + imageUrl} className='banner-carousel-item'>
                                 <div className='banner-slider'>
-                                    <Image src={imageData} alt={'Photo ' + item} style={{ width: '100%', height: carouselHeight, objectFit: 'cover' }} priority />
+                                    <Image src={imageUrl} alt={'Photo ' + imageUrl} width={1000} height={600} style={{ width: '100%', height: carouselHeight, objectFit: 'cover' }} priority />
                                 </div>
                             </div>
                         );

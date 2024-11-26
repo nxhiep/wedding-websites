@@ -95,7 +95,7 @@ a {
 }
 .banner-slider:after {
   content: "";
-  background-color: rgb(0 0 0 / 55%);
+  background-color: rgb(0 0 0 / 75%);
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -184,4 +184,125 @@ a {
 .guestbook-text-style::placeholder, 
 .guestbook-text-style::-ms-input-placeholder  {
   color: 'grey';
+}
+
+.dot-dot-dot {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+.event-item {
+  background: url(./images/event.jpg) center center / cover no-repeat local;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  border-radius: 12px;
+  -webkit-box-shadow: 0px 4px 13.65px 7.35px rgba(115, 115, 115, 0.18);
+  box-shadow: 0px 4px 13.65px 7.35px rgba(115, 115, 115, 0.18);
+  width: 300px;
+}
+
+#WeddingEvent {
+  background-color: '#f5f4ec';
+  padding: 100px 0
+}
+
+#Guestbook {
+  position: relative;
+  background: url(./images/rsvp-bg.png);
+  padding: 100px 0;
+}
+
+/* width */
+.scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 12px;
+}
+
+/* Handle */
+.scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 12px;
+}
+
+/* Handle on hover */
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+#Thanks {
+  position: relative;
+  padding-top: 100px;
+}
+
+#Thanks .bg {
+  background: url(https://firebasestorage.googleapis.com/v0/b/wedding-website-835af.appspot.com/o/images%2FDSC03517-min.jpg?alt=media&token=e84d27e2-d980-4977-935b-22d28129807b) center;
+  background-size: 100%;
+  min-height: 700px;
+  background-position: bottom;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#Thanks .bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000080;
+}
+#Thanks .content {
+  z-index: 1;
+  position: relative;
+}
+#Thanks .content h1 {
+  color: white;
+  text-align: center;
+}
+
+#heart {
+  position: relative;
+  width: 100px;
+  height: 90px;
+  margin-top: 10px;
+  zoom: 2;
+}
+
+#heart::before, #heart::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 52px;
+  height: 80px;
+  border-radius: 50px 50px 0 0;
+  background: white;
+}
+
+#heart::before {
+  left: 52px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+#heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+#Thanks .menu {
+  padding: 20px;
+  color: white;
 }

@@ -1,23 +1,27 @@
 'use client'
 
 import { FireStorageRepo } from "@/respositories/firebase/storage";
-import { PauseCircle, PlayCircle } from "@mui/icons-material";
 import { useEffect, useRef, useState } from "react";
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 const MyAudioPlayer = () => {
     const ref = useRef<HTMLAudioElement | null>(null);
     const [playing, setPlaying] = useState(false);
     const [turnOnButton, setTurnOnButton] = useState(false);
     useEffect(() => {
-        if(!window.location.host.includes('localhost')) {
-            FireStorageRepo.getAudioUrl().then((url) => {
-                if(ref.current) {
-                    ref.current.src = url;
-                    ref.current.load();
-                    ref.current.play().catch(() => setTurnOnButton(true));
-                }
-            });
-        }
+        FireStorageRepo.getAudioUrl().then((url) => {
+            if(ref.current) {
+                ref.current.src = url;
+                ref.current.load();
+                ref.current.play()
+                .then(() => setPlaying(true))
+                .catch((e) => {
+                    setTurnOnButton(true);
+                    setPlaying(true);
+                });
+            }
+        });
     }, []);
     
     return (
@@ -37,7 +41,7 @@ const MyAudioPlayer = () => {
                     } else {
                         ref.current?.pause();
                     }
-                }}>{playing ? <PauseCircle color="inherit" fontSize="large" /> : <PlayCircle color="inherit" fontSize="large" />}</div>
+                }}>{playing ? <VolumeUpIcon color="inherit" fontSize="large" /> : <VolumeOffIcon color="inherit" fontSize="large" />}</div>
             ) }
         </>
     );
