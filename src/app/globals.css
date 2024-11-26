@@ -301,3 +301,8 @@ a {
   transform: rotate(45deg);
   transform-origin: 100% 100%;
 }
+
+#Thanks .menu {
+  padding: 20px;
+  color: white;
+}

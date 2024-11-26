@@ -12,6 +12,7 @@ import HappyWedding from "@/components/happyWedding";
 import Thanks from "@/components/thanks";
 import Album from "@/components/album";
 import MyAudioPlayer from "@/components/audioPlayer";
+import Menu from "@/components/menu";
 
 export const metadata: Metadata = {
 	title: Config.title,
@@ -31,13 +32,7 @@ export default function Home() {
 				<div className="header-bg">
 					<WebTitle size={35} />
 				</div>
-				<div className="menu">
-					<a href="#CoupleWidget">Cặp đôi</a>
-					<a href="#WeddingEvent">Sự kiện cưới</a>
-					<a href="#Album">Album Hình Cưới</a>
-					<a href="#Guestbook">Sổ Lưu Bút</a>
-					<a href="#HappyWedding">Mừng cưới</a>
-				</div>
+				<Menu />
 			</header>
 			<main className="main">
 				<MyAudioPlayer />
@@ -56,9 +51,9 @@ export default function Home() {
 				<Thanks />
 			</main>
 			<StaticWidgets />
-			<footer className="footer">
+			{/* <footer className="footer">
 				Footer
-			</footer>
+			</footer> */}
 		</body>
 	);
 }

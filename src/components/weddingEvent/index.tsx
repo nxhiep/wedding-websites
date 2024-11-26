@@ -15,7 +15,7 @@ const WeddingEvent = () => {
                 description="...tình yêu không phải là nhìn chằm chằm vào nhau, mà là nhìn chằm chằm về cùng một hướng..."
             />
             <Grid2 container alignItems={'stretch'} justifyContent={'center'} spacing={2}>
-                <Grid2 size={{ xs: 5, xl: 3 }} justifyContent={'center'} alignItems={'center'} display={'flex'}>
+                <Grid2 size={{ xs: 12, sm: 6, md: 4, xl: 3 }} justifyContent={'center'} alignItems={'center'} display={'flex'}>
                     <EventItem 
                         title="Tiệc cưới nhà gái"
                         address="Số 14, Ngách 1, Ngõ 137, Đường Lê Văn Tám, Phường Đồng Tâm, TP Yên Bái"
@@ -24,7 +24,7 @@ const WeddingEvent = () => {
                         addressMap="https://maps.app.goo.gl/7smS2h2FC45g5QYv5"
                     />
                 </Grid2>
-                <Grid2 size={{ xs: 5, xl: 3 }} justifyContent={'center'} alignItems={'center'} display={'flex'}>
+                <Grid2 size={{ xs: 12, sm: 6, md: 4, xl: 3 }} justifyContent={'center'} alignItems={'center'} display={'flex'}>
                     <EventItem 
                         title="Tiệc cưới nhà trai"
                         address="Số 4/134 Đại Khối, Phường Đông Cương, TP Thanh Hoá"
