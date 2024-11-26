@@ -1,5 +1,4 @@
 import Menu from "../menu";
-import MyTitle from "../myTitle";
 
 const Thanks = () => {
 

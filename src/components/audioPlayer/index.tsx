@@ -16,7 +16,7 @@ const MyAudioPlayer = () => {
                 ref.current.load();
                 ref.current.play()
                 .then(() => setPlaying(true))
-                .catch((e) => {
+                .catch(() => {
                     setTurnOnButton(true);
                     setPlaying(true);
                 });

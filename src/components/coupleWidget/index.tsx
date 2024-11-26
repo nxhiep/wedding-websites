@@ -2,11 +2,11 @@
 
 import Config from "@/config";
 import FacebookIcon from '@mui/icons-material/Facebook';
-import { Box, Container, Grid2, useMediaQuery, useTheme } from "@mui/material";
-import Image, { StaticImageData } from "next/image";
+import { Box, Grid2, useMediaQuery, useTheme } from "@mui/material";
+import Image from "next/image";
 import { FC } from "react";
-import MyTitle from "../myTitle";
 import { ImagesConfig } from "../../config/images";
+import MyTitle from "../myTitle";
 
 const CoupleWidget = () => {
     return (

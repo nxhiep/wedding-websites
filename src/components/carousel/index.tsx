@@ -19,7 +19,7 @@ const MyCarousel = () => {
     useEffect(() => {
         setLoaded(true);
         setWidth(window.innerWidth);
-        const onResize = (e: Event) => {
+        const onResize = () => {
             setWidth(window.innerWidth);
         }
         window.addEventListener('resize', onResize);
