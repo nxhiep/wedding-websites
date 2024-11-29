@@ -1,6 +1,6 @@
 'use client';
 
-import { FireStoreRepo } from "@/respositories/firebase/firestore";
+import { FireStoreRepo } from "@/repositories/firebase/firestore";
 import MyTitle from "../myTitle";
 import { FC, Fragment, useEffect, useRef, useState } from "react";
 import { Button, Container, Grid2, IconButton, List, ListItem, ListItemAvatar, ListItemText, Snackbar, TextareaAutosize } from "@mui/material";

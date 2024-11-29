@@ -1,6 +1,6 @@
 'use client'
 
-import { FireStorageRepo } from "@/respositories/firebase/storage";
+import { FireStorageRepo } from "@/repositories/firebase/storage";
 import { useEffect, useRef, useState } from "react";
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
