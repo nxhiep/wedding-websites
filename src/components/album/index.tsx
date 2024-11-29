@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FC, useEffect, useState } from "react";
 import { Gallery, Image as ImageObj } from "react-grid-gallery";
 import MyTitle from "../myTitle";
+import { FireStorageRepo } from "@/respositories/firebase/storage";
 
 function shuffle(array: any[]) {
     let currentIndex = array.length;
@@ -30,6 +31,9 @@ const Album = () => {
         });
         shuffle(list);
         setImages(list);
+        FireStorageRepo.getAllAlbums('xs').then((data) => {
+            console.log(JSON.stringify(data));
+        })
     }, []);
     const [openImage, setOpenImage] = useState<ImageObj | null>(null);
     return (
