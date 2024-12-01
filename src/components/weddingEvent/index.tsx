@@ -45,7 +45,7 @@ const EventItem: FC<({
 }) => {
     return (
         <div className="event-item">
-            <Image src={image} width={400} height={400} alt='Sự kiện nhà gái' style={{ width: 250, height: 250, borderRadius: 12, marginBottom: 12 }} />
+            <Image src={image} width={250} height={250} alt='Sự kiện nhà gái' style={{ width: 250, height: 250, borderRadius: 12, marginBottom: 12 }} />
             <div style={{ fontSize: 20, textTransform: 'uppercase', fontWeight: 'bold', marginBottom: 12 }}>{title}</div>
             <div style={{ display: 'flex', alignItems: 'flex-start', marginBottom: 12, fontWeight: '500', minHeight: 65 }}><PlaceIcon />{address}</div>
             <div style={{ display: 'inline-flex', alignItems: 'flex-start', marginBottom: 12, textAlign: 'center', fontWeight: 'bold', }}><ScheduleIcon />{date}</div>

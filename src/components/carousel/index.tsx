@@ -13,7 +13,7 @@ import { ImagesConfig } from '../../config/images';
 import LoadingWidget from '../loadingWidget';
 import WebTitle from '../webTitle';
 
-const MyCarousel = () => {
+const FirstBannerCarousel = () => {
     const [loaded, setLoaded] = useState(false);
     const [width, setWidth] = useState<number>(1000);
     useEffect(() => {
@@ -117,4 +117,4 @@ const MyCarousel = () => {
     );
 }
 
-export default MyCarousel;
+export default FirstBannerCarousel;

@@ -1,12 +1,46 @@
 'use client';
 
-import { Button, Container, Dialog, DialogActions, DialogContent } from "@mui/material";
-import { useState } from "react";
-import AlbumsCarousel from "../carousel/albums_carousel";
+import { ImagesConfig } from "@/config/images";
+import ImageData from "@/models/imageData";
+import { Utils } from "@/utils";
+import { Button, Container } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Gallery, Image } from "react-grid-gallery";
 import MyTitle from "../myTitle";
+import AlbumDialog from "./albumDialog";
+
+const allImages = ImagesConfig.getAllAlbums();
+const imagesXS = Object.values(allImages).reduce<ImageData[]>((prev, next) => {
+    const item = next.find((a) => a.type === 'xs');
+    if(item) {
+        return [ ...prev, item];
+    }
+    return prev;
+}, []);
+const imagesLG = Object.values(allImages).reduce<ImageData[]>((prev, next) => {
+    const item = next.find((a) => a.type === 'lg');
+    if(item) {
+        return [ ...prev, item];
+    }
+    return prev;
+}, []);
 
 const Album = () => {
-    const [openImage, setOpenImage] = useState<string | null>(null);
+    const [currentImage, setCurrentImage] = useState<string | null>(null);
+    const [images, setImages] = useState<Image[]>([]);
+    useEffect(() => {
+        const previewImages = imagesXS.slice(0, 15);
+        Utils.shuffle(previewImages);
+        setImages(previewImages.map((item) => {
+            return {
+                src: item.url,
+                width: item.width,
+                height: item.height,
+                isSelected: false,
+                alt: item.name
+            }
+        }));
+    }, []);
     return (
         <div id="Album">
             <MyTitle
@@ -14,21 +48,22 @@ const Album = () => {
                 description=""
             />
             <Container>
-                <AlbumsCarousel 
-                    onSelectImage={(list) => {
-                        setOpenImage(list);
-                    }}
+                <Gallery 
+                    images={images} 
+                    maxRows={2} 
+                    enableImageSelection={false} 
+                    onClick={(_, item) => setCurrentImage(item.alt ?? '')}
                 />
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+                <Button variant="contained" onClick={() => setCurrentImage('')}>TẤT CẢ HÌNH ẢNH</Button>
+                </div>
             </Container>
-            { openImage && (
-                <Dialog open={true} maxWidth="xl">
-                    <DialogContent>
-                        xxx
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={() => setOpenImage(null)} variant="outlined">Đóng</Button>
-                    </DialogActions>
-                </Dialog>
+            { typeof currentImage === 'string' && (
+                <AlbumDialog 
+                    images={imagesLG}
+                    initialActiveIndex={imagesLG.findIndex((a) => a.name === currentImage)} 
+                    onHide={() => setCurrentImage(null)}
+                />
             ) }
         </div>
     );

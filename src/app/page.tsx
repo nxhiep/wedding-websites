@@ -27,9 +27,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
 	return (
-		<body 
-		style={{ display: 'none' }}
-		>
+		<body>
 			<header className="header">
 				<div className="header-bg">
 					<WebTitle size={35} />
