@@ -6,8 +6,8 @@ import { Close } from '@mui/icons-material';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton } from '@mui/material';
 import Image from 'next/image';
 import { FC, useRef } from 'react';
-import ReactElasticCarousel, { ReactElasticCarouselProps } from 'react-elastic-carousel';
 import { StyleSheetManager } from 'styled-components';
+import ReactElasticCarousel, { ReactElasticCarouselProps } from '../react-elastic-carousel';
 
 const AlbumDialog:FC<({ images: ImageData[], initialActiveIndex: number, onHide: () => void })> = ({ images, initialActiveIndex, onHide }) => {
     const props: ReactElasticCarouselProps = {

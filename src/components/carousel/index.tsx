@@ -7,7 +7,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Countdown from 'react-countdown';
-import Carousel, { ReactElasticCarouselProps } from 'react-elastic-carousel';
+import Carousel, { ReactElasticCarouselProps } from '../react-elastic-carousel';
 import { StyleSheetManager } from 'styled-components';
 import { ImagesConfig } from '../../config/images';
 import LoadingWidget from '../loadingWidget';
