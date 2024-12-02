@@ -3,13 +3,20 @@
 import ImageData from '@/models/imageData';
 import isPropValid from '@emotion/is-prop-valid';
 import { Close } from '@mui/icons-material';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton } from '@mui/material';
+import { Button, Card, Dialog, DialogActions, DialogContent, DialogTitle, IconButton } from '@mui/material';
 import Image from 'next/image';
-import { FC, useRef } from 'react';
+import { FC, useRef, useState } from 'react';
 import { StyleSheetManager } from 'styled-components';
 import ReactElasticCarousel, { ReactElasticCarouselProps } from '../react-elastic-carousel';
 
-const AlbumDialog:FC<({ images: ImageData[], initialActiveIndex: number, onHide: () => void })> = ({ images, initialActiveIndex, onHide }) => {
+const AlbumDialog:FC<({ 
+    imagesSmall: ImageData[], 
+    imagesBig: ImageData[], 
+    initialActiveIndex: number, 
+    onHide: () => void 
+})> = ({ imagesBig, imagesSmall, initialActiveIndex, onHide }) => {
+    const imageWidth = 100;
+    const [currentIndex, setCurrentIndex] = useState(initialActiveIndex < 0 ? 0 : initialActiveIndex);
     const props: ReactElasticCarouselProps = {
         isRTL: false,
         showArrows: true,
@@ -17,10 +24,10 @@ const AlbumDialog:FC<({ images: ImageData[], initialActiveIndex: number, onHide:
         enableMouseSwipe: false,
         pagination: false,
         enableAutoPlay: true,
-        autoPlaySpeed: 5000,
-        initialActiveIndex: initialActiveIndex < 0 ? 0 : initialActiveIndex,
-        onChange: (item, index) => {
-            console.log("item", item, index)
+        autoPlaySpeed: 10000,
+        initialActiveIndex: currentIndex,
+        onChange: (_, index) => {
+            setCurrentIndex(index);
         }
     }
     const ref = useRef<ReactElasticCarousel>(null);
@@ -34,7 +41,7 @@ const AlbumDialog:FC<({ images: ImageData[], initialActiveIndex: number, onHide:
             <DialogContent>
                 <StyleSheetManager shouldForwardProp={isPropValid}>
                     <ReactElasticCarousel {...props} ref={ref}>
-                        {images.map((image, index) => {
+                        {imagesBig.map((image, index) => {
                             return (
                             <div key={'album-item-' + image.name + '-' + index}>
                                     <div>
@@ -55,11 +62,33 @@ const AlbumDialog:FC<({ images: ImageData[], initialActiveIndex: number, onHide:
                         })}
                     </ReactElasticCarousel>
                 </StyleSheetManager>
-                <Button variant='contained' onClick={() => {
-                    ref.current?.goTo(3);
-                }}>
-                    Test
-                </Button>
+                <div style={{ display: 'flex', alignItems: 'center', overflowX: 'auto', gap: 12 }}>
+                    {
+                        imagesSmall.map((image, index) => {
+                            const active = currentIndex === index;
+                            return (
+                                <div key={'card-image-' + image.name + index} onClick={() => {
+                                    setCurrentIndex(index);
+                                    ref.current?.goTo(index);
+                                }}>
+                                    <Image 
+                                        src={image.url} 
+                                        alt={image.name} 
+                                        width={imageWidth} 
+                                        height={image.height * imageWidth / image.width}
+                                        style={{ 
+                                            width: imageWidth,
+                                            height: imageWidth,
+                                            objectFit: 'cover',
+                                            borderRadius: 8,
+                                            border: active ? '2px solid #ddd' : '2px'
+                                        }} 
+                                    />
+                                </div>
+                            );
+                        })
+                    }
+                </div>
             </DialogContent>
             <DialogActions>
                 <Button onClick={onHide} variant="outlined">Đóng</Button>

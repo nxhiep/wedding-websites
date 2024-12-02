@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Swipeable } from "react-swipeable";
+import { useSwipeable } from "react-swipeable";
 import { cssPrefix } from "../utils/helpers";
 import ItemWrapperContainer from "./ItemWrapperContainer";
 
@@ -27,7 +27,7 @@ const Track = ({
   const maxVisibleItem = currentItem + itemsToShow;
   const prevItem = minVisibleItem - itemsToScroll;
   const nextItem = maxVisibleItem + itemsToScroll;
-
+  
   const originalChildren = React.Children.map(children, (child, idx) => {
     const isVisible = idx >= minVisibleItem && idx < maxVisibleItem;
     const isPrevItem = !isVisible && idx >= prevItem && idx < currentItem;
@@ -61,6 +61,14 @@ const Track = ({
       </div>
     );
   });
+
+  const Swipeable = useSwipeable({
+    onSwiping: onSwiping,
+    onSwiped: onSwiped,
+    className: cssPrefix("swipable"),
+    trackMouse: enableMouseSwipe,
+  });
+
   const toRender = enableSwipe ? (
     <Swipeable
       style={{

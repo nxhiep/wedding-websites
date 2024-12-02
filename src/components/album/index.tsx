@@ -54,13 +54,14 @@ const Album = () => {
                     enableImageSelection={false} 
                     onClick={(_, item) => setCurrentImage(item.alt ?? '')}
                 />
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
                 <Button variant="contained" onClick={() => setCurrentImage('')}>TẤT CẢ HÌNH ẢNH</Button>
-                </div>
+            </div>
             </Container>
             { typeof currentImage === 'string' && (
                 <AlbumDialog 
-                    images={imagesLG}
+                    imagesSmall={imagesXS}
+                    imagesBig={imagesLG}
                     initialActiveIndex={imagesLG.findIndex((a) => a.name === currentImage)} 
                     onHide={() => setCurrentImage(null)}
                 />
