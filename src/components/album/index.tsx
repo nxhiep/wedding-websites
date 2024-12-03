@@ -3,11 +3,17 @@
 import { ImagesConfig } from "@/config/images";
 import ImageData from "@/models/imageData";
 import { Utils } from "@/utils";
-import { Button, Container } from "@mui/material";
+import { Button, Container, createTheme, ThemeProvider } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Gallery, Image } from "react-grid-gallery";
 import MyTitle from "../myTitle";
 import AlbumDialog from "./albumDialog";
+
+const darkTheme = createTheme({
+	palette: {
+		mode: 'dark',
+	},
+});
 
 const allImages = ImagesConfig.getAllAlbums();
 const imagesXS = Object.values(allImages).reduce<ImageData[]>((prev, next) => {
@@ -42,31 +48,33 @@ const Album = () => {
         }));
     }, []);
     return (
-        <div id="Album">
-            <MyTitle
-                title="Album ảnh cưới"
-                description=""
-            />
-            <Container>
-                <Gallery 
-                    images={images} 
-                    maxRows={2} 
-                    enableImageSelection={false} 
-                    onClick={(_, item) => setCurrentImage(item.alt ?? '')}
+        <ThemeProvider theme={darkTheme}>
+            <div id="Album">
+                <MyTitle
+                    title="Album ảnh cưới"
+                    description=""
                 />
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
-                <Button variant="contained" onClick={() => setCurrentImage('')}>TẤT CẢ HÌNH ẢNH</Button>
+                <Container>
+                    <Gallery 
+                        images={images} 
+                        maxRows={2} 
+                        enableImageSelection={false} 
+                        onClick={(_, item) => setCurrentImage(item.alt ?? '')}
+                    />
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+                    <Button variant="contained" onClick={() => setCurrentImage('')}>TẤT CẢ HÌNH ẢNH</Button>
+                </div>
+                </Container>
+                { typeof currentImage === 'string' && (
+                    <AlbumDialog 
+                        imagesSmall={imagesXS}
+                        imagesBig={imagesLG}
+                        initialActiveIndex={imagesLG.findIndex((a) => a.name === currentImage)} 
+                        onHide={() => setCurrentImage(null)}
+                    />
+                ) }
             </div>
-            </Container>
-            { typeof currentImage === 'string' && (
-                <AlbumDialog 
-                    imagesSmall={imagesXS}
-                    imagesBig={imagesLG}
-                    initialActiveIndex={imagesLG.findIndex((a) => a.name === currentImage)} 
-                    onHide={() => setCurrentImage(null)}
-                />
-            ) }
-        </div>
+        </ThemeProvider>
     );
 }
 

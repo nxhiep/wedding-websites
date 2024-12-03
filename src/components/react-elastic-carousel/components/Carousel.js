@@ -138,6 +138,8 @@ class Carousel extends React.Component {
     }, autoPlaySpeed);
   };
 
+  isAutoPlay = () => !!this.autoPlayIntervalId;
+
   removeAutoPlay = () => {
     if (this.autoPlayIntervalId) {
       clearInterval(this.autoPlayIntervalId);

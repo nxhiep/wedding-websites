@@ -112,6 +112,8 @@ declare class ReactElasticCarousel extends React.Component<
   ReactElasticCarouselProps & { children?: React.ReactNode }
 > {
   goTo: (page: number) => void
+  removeAutoPlay: () => void
+  isAutoPlay: () => boolean
 }
 
 export default ReactElasticCarousel;

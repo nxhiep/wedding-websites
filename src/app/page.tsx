@@ -1,18 +1,17 @@
-
-import MyCarousel from "@/components/carousel";
-import Config from "@/config";
-import WebTitle from "@/components/webTitle";
-import { Metadata } from "next";
-import StaticWidgets from "@/components/staticWidget";
-import CoupleWidget from "@/components/coupleWidget";
-import Space from "@/components/space";
-import WeddingEvent from "@/components/weddingEvent";
-import Guestbook from "@/components/guestbook";
-import HappyWedding from "@/components/happyWedding";
-import Thanks from "@/components/thanks";
 import Album from "@/components/album";
 import MyAudioPlayer from "@/components/audioPlayer";
-import Menu from "@/components/menu";
+import MyCarousel from "@/components/carousel";
+import CoupleWidget from "@/components/coupleWidget";
+import Guestbook from "@/components/guestbook";
+import HappyWedding from "@/components/happyWedding";
+import MenuMobile from "@/components/menu";
+import Space from "@/components/space";
+import StaticWidgets from "@/components/staticWidget";
+import Thanks from "@/components/thanks";
+import WebTitle from "@/components/webTitle";
+import WeddingEvent from "@/components/weddingEvent";
+import Config from "@/config";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: Config.title,
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
 		name: "Hiepnx",
 		url: "https://github.com/nxhiep"
 	},
-	
+
 }
 
 export default function Home() {
@@ -31,8 +30,8 @@ export default function Home() {
 			<header className="header">
 				<div className="header-bg">
 					<WebTitle size={35} />
+					<MenuMobile />
 				</div>
-				<Menu />
 			</header>
 			<main className="main">
 				<MyAudioPlayer />
@@ -51,9 +50,6 @@ export default function Home() {
 				<Thanks />
 			</main>
 			<StaticWidgets />
-			{/* <footer className="footer">
-				Footer
-			</footer> */}
 		</body>
 	);
 }

@@ -1,4 +1,4 @@
-import Menu from "../menu";
+import MenuMobile from "../menu";
 
 const Thanks = () => {
 
@@ -11,7 +11,7 @@ const Thanks = () => {
                 </div>
                 <h1>Thank You!</h1>
                 <h1>Xuân Hiệp - Ngọc Anh</h1>
-                <Menu />
+                <MenuMobile />
             </div>
         </div>
     );

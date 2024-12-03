@@ -24,7 +24,8 @@ body {
   font-style: normal;
 }
 
-.playfair-display, .playfair-display > * {
+.playfair-display,
+.playfair-display>* {
   font-family: "Playfair Display", system-ui, serif, sans-serif, Arial, Helvetica;
   font-optical-sizing: auto;
   font-style: normal;
@@ -73,26 +74,14 @@ a {
   height: 300px;
 }
 
-.menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 0;
-}
-.menu a {
-  padding: 0 12px;
-  cursor: pointer;
-}
-.menu a:hover {
-  text-decoration: underline;
-}
-
 .rec-slider-container {
   margin: 0 !important;
 }
+
 .rec-carousel {
   position: relative;
 }
+
 .banner-slider:after {
   content: "";
   background-color: rgb(0 0 0 / 75%);
@@ -103,13 +92,15 @@ a {
   top: 0;
   left: 0;
 }
+
 .count-down-content {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 24px;
 }
-.count-down-content > div {
+
+.count-down-content>div {
   border: 3px solid white;
   border-radius: 100%;
   width: 120px;
@@ -122,9 +113,11 @@ a {
   align-items: center;
   justify-content: center;
 }
-.count-down-content > div > div:last-child {
+
+.count-down-content>div>div:last-child {
   font-size: 25px;
 }
+
 .banner-carousel-item {
   position: relative;
   display: flex;
@@ -133,16 +126,19 @@ a {
   width: 100%;
   height: 100%;
 }
+
 .banner-slider {
   width: 100%;
   height: 100%;
 }
+
 .my-title {
   text-align: center;
   position: relative;
   height: 300px;
   padding-top: 70px;
 }
+
 .my-title::before {
   content: "";
   background: url(./images/sec-title-flower.png) center center / cover no-repeat local;
@@ -181,8 +177,8 @@ a {
   border-radius: 8px;
 }
 
-.guestbook-text-style::placeholder, 
-.guestbook-text-style::-ms-input-placeholder  {
+.guestbook-text-style::placeholder,
+.guestbook-text-style::-ms-input-placeholder {
   color: 'grey';
 }
 
@@ -193,6 +189,7 @@ a {
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
+
 .event-item {
   background: url(./images/event.jpg) center center / cover no-repeat local;
   padding: 20px;
@@ -263,10 +260,12 @@ a {
   height: 100%;
   background-color: #00000080;
 }
+
 #Thanks .content {
   z-index: 1;
   position: relative;
 }
+
 #Thanks .content h1 {
   color: white;
   text-align: center;
@@ -280,7 +279,8 @@ a {
   zoom: 2;
 }
 
-#heart::before, #heart::after {
+#heart::before,
+#heart::after {
   content: "";
   position: absolute;
   top: 0;
@@ -305,4 +305,19 @@ a {
 #Thanks .menu {
   padding: 20px;
   color: white;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu a {
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.menu a:hover {
+  text-decoration: underline;
 }
