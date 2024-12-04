@@ -4,11 +4,10 @@ import MyCarousel from "@/components/carousel";
 import CoupleWidget from "@/components/coupleWidget";
 import Guestbook from "@/components/guestbook";
 import HappyWedding from "@/components/happyWedding";
-import MenuMobile from "@/components/menu";
+import Header from "@/components/header";
 import Space from "@/components/space";
 import StaticWidgets from "@/components/staticWidget";
 import Thanks from "@/components/thanks";
-import WebTitle from "@/components/webTitle";
 import WeddingEvent from "@/components/weddingEvent";
 import Config from "@/config";
 import { Metadata } from "next";
@@ -27,12 +26,7 @@ export const metadata: Metadata = {
 export default function Home() {
 	return (
 		<body>
-			<header className="header">
-				<div className="header-bg">
-					<WebTitle size={35} />
-					<MenuMobile />
-				</div>
-			</header>
+			<Header />
 			<main className="main">
 				<MyAudioPlayer />
 				<MyCarousel />
