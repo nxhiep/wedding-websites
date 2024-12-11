@@ -99,7 +99,7 @@ class Carousel extends React.Component {
   setRef = name => ref => (this[name] = ref);
 
   initResizeObserver = () => {
-    this.ro = new ResizeObserver((entries, observer) => {
+    this.ro = new ResizeObserver((entries) => {
       for (const entry of entries) {
         if (entry.target === this.sliderContainer) {
           // we are using rAF because it fixes the infinite refresh with gatsby (ssr?).
@@ -337,7 +337,7 @@ class Carousel extends React.Component {
   };
 
   tiltMovement = (position, distance = 20, duration = 150) => {
-    this.setState(state => {
+    this.setState(_ => {
       return {
         isSwiping: true,
         swipedSliderPosition: position - distance
@@ -854,7 +854,7 @@ class Carousel extends React.Component {
             >
               <Track
                 verticalMode={verticalMode}
-                children={Children.toArray(children)}
+                children={Children.toArray(children)} // react/no-children-prop
                 childWidth={childWidth}
                 currentItem={activeIndex}
                 autoTabIndexVisibleItems={autoTabIndexVisibleItems}

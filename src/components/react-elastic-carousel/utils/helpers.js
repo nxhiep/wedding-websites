@@ -25,7 +25,7 @@ export const throttle = (func, limit) => {
   let lastFunc;
   let lastRan;
   return function() {
-    const context = this;
+    const context = this; // @typescript-eslint/no-this-alias
     const args = arguments;
     if (!lastRan) {
       func.apply(context, args);
