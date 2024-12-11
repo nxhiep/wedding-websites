@@ -48,7 +48,7 @@ const InfoItem:FC<({
 })> = ({ accountName, accountNumber, bankName, location, title, image }) => {
     return (
         <div style={{ 
-            width: 300, 
+            width: 350, 
             display: 'flex', 
             alignItems: 'center', 
             justifyContent: 'center', 

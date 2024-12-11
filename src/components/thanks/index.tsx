@@ -1,4 +1,4 @@
-import MenuMobile from "../menu";
+import MenuMobile from "../navbar";
 
 const Thanks = () => {
 

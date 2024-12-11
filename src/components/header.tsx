@@ -1,4 +1,4 @@
-import { MenuMobile } from "./menu";
+import Navbar from "./navbar";
 import WebTitle from "./webTitle";
 
 const Header = () => {
@@ -7,7 +7,7 @@ const Header = () => {
             <div className="header-bg">
                 <div style={{ width: 40 }}></div>
                 <WebTitle size={35} />
-                <MenuMobile />
+                <Navbar />
             </div>
         </header>
     );

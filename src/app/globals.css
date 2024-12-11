@@ -1,6 +1,7 @@
 :root {
   --background-color: white;
-  --header-height: 112px;
+  --header-height-pc: 112px;
+  --header-height-mobile: 68px;
   --header-background-color: #f5f4ec
 }
 
@@ -48,7 +49,7 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  height: var(--header-height);
+  height: var(--header-height-mobile);
   z-index: 999;
   background-color: white;
   border-bottom: 1px solid #ddd;
@@ -96,7 +97,7 @@ a {
 }
 
 .main {
-  margin-top: var(--header-height);
+  margin-top: var(--header-height-mobile);
 }
 
 .footer {
@@ -349,4 +350,52 @@ a {
 
 .menu a:hover {
   text-decoration: underline;
+}
+
+.navbar-pc {
+  display: none;
+}
+
+.navbar-mobile {
+  display: block;
+}
+
+.navbar-mobile-list {
+  border: 1px solid #ddd;
+}
+
+.navbar-pc a {
+  display: block;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.navbar-pc a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 900px) {
+  .navbar-pc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .header-bg {
+    display: block;
+    height: 100%;
+  }
+  
+  .navbar-mobile {
+    display: none;
+  }
+
+  .header {
+    height: var(--header-height-pc);
+  }
+
+  .main {
+    margin-top: var(--header-height-pc);
+  }
 }
