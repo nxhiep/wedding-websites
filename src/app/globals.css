@@ -497,4 +497,7 @@ a {
   color: white;
   font-weight: bold;
   border-radius: 40px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
 }
