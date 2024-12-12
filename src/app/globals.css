@@ -162,11 +162,15 @@ a {
   height: 100%;
 }
 
+.space-height {
+  height: 30px;
+}
+
 .my-title {
   text-align: center;
   position: relative;
   height: 300px;
-  padding-top: 70px;
+  padding-top: 100px;
 }
 
 .my-title::before {
@@ -201,15 +205,23 @@ a {
 }
 
 .guestbook-text-style {
-  font-size: 16px;
-  color: 'black';
-  padding: 16px;
+  font-size: 14px;
+  color: black;
+  padding: 12px;
   border-radius: 8px;
+  caret-color: black;
 }
 
 .guestbook-text-style::placeholder,
 .guestbook-text-style::-ms-input-placeholder {
   color: 'grey';
+  caret-color: black;
+}
+
+.guestbook-text-style:focus {
+  border: 2px solid black;
+  border-radius: 0;
+  caret-color: black;
 }
 
 .dot-dot-dot {
@@ -232,8 +244,8 @@ a {
 }
 
 #WeddingEvent {
-  background-color: '#f5f4ec';
-  padding: 100px 0
+  background-color: #f5f4ec;
+  padding: 20px 0;
 }
 
 #Guestbook {
@@ -245,6 +257,7 @@ a {
 /* width */
 .scroll::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
 }
 
 /* Track */
@@ -264,19 +277,11 @@ a {
   background: #555;
 }
 
-#Thanks {
-  position: relative;
-  padding-top: 100px;
-}
-
-#Thanks .bg {
-  background: url(https://firebasestorage.googleapis.com/v0/b/wedding-website-835af.appspot.com/o/images%2FDSC03517-min.jpg?alt=media&token=e84d27e2-d980-4977-935b-22d28129807b) center;
-  background-size: 100%;
-  min-height: 700px;
-  background-position: bottom;
-  position: absolute;
-  top: 0;
-  left: 0;
+#Thanks .content {
+  background: url(https://firebasestorage.googleapis.com/v0/b/wedding-website-835af.appspot.com/o/images%2Fsm%2FDSC03517.jpg?alt=media&token=014f4282-874f-42b9-9b43-c557a02bc271) center no-repeat;
+  background-size: auto 100%;
+  min-height: 400px;
+  background-position: top;
   width: 100%;
   height: 100%;
 }
@@ -354,6 +359,7 @@ a {
 
 .navbar-pc {
   display: none;
+  background-color: white;
 }
 
 .navbar-mobile {
@@ -374,7 +380,83 @@ a {
   text-decoration: underline;
 }
 
+.static-actions {
+  position: fixed;
+  z-index: 2;
+  bottom: 12px;
+  right: 12px;
+}
+
+.form-input {
+  background-color: white;
+  border: 1px solid black;
+  height: 100%;
+  padding: 5px;
+}
+
+.form-input > .form-input-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  padding: 32px;
+}
+
+.form-input input, .form-input textarea {
+  border-radius: 0;
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+.form-input .row-1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fullscreen.fullscreen-enabled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#Thanks .content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#Thanks .content::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+#Thanks .content .info {
+  position: relative;
+  z-index: 2;
+}
+
 @media only screen and (min-width: 900px) {
+  #WeddingEvent {
+    background-color: #f5f4ec;
+    padding: 100px;
+  }
+  .my-title {
+    padding-top: 70px;
+  }
+  .space-height {
+    height: 100px;
+  }
   .navbar-pc {
     display: flex;
     align-items: center;
@@ -397,5 +479,22 @@ a {
 
   .main {
     margin-top: var(--header-height-pc);
+    overflow-y: hidden;
   }
+
+  .static-actions {
+    bottom: 50px;
+    right: 50px;
+  }
+
+  #Thanks .content {
+    background-size: 100% auto;
+  }
+}
+
+.all-images-button {
+  background-color: #df4758;
+  color: white;
+  font-weight: bold;
+  border-radius: 40px;
 }

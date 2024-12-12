@@ -18,7 +18,7 @@ const mapLink = [
     new MenuItem('#CoupleWidget', 'Cặp đôi'),
     new MenuItem('#WeddingEvent', 'Sự kiện cưới'),
     new MenuItem('#Album', 'Album Hình Cưới'),
-    new MenuItem('#Guestbook', 'Sổ Lưu Bút'),
+    // new MenuItem('#Guestbook', 'Sổ Lưu Bút'),
     new MenuItem('#HappyWedding', 'Mừng cưới')
 ];
 

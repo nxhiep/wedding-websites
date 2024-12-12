@@ -16,7 +16,7 @@ const StaticWidgets = () => {
     const [open, setOpen] = useState(true);
     const gap = 12;
     return (
-        <div style={{ position: 'fixed', bottom: 50, right: 50, zIndex: 2 }}>
+        <div className="static-actions">
             <Collapse in={open}>
                 <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: gap }}>
                     <Tooltip title="Gửi lời chúc" placement="right">

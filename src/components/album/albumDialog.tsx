@@ -2,11 +2,11 @@
 
 import ImageData from '@/models/imageData';
 import isPropValid from '@emotion/is-prop-valid';
-import { ArrowBackIos, ArrowForwardIos, Close, Fullscreen, Pause, PlayArrow } from '@mui/icons-material';
+import { ArrowBackIos, ArrowForwardIos, Close, CloseRounded, Fullscreen, Pause, PlayArrow } from '@mui/icons-material';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton } from '@mui/material';
 import Image from 'next/image';
 import { FC, useRef, useState } from 'react';
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import { FullScreen, FullScreenHandle, useFullScreenHandle } from "react-full-screen";
 import { StyleSheetManager } from 'styled-components';
 import ReactElasticCarousel, { ReactElasticCarouselProps } from '../react-elastic-carousel';
 
@@ -67,6 +67,9 @@ const AlbumDialog:FC<({
     const carouselRef = useRef<ReactElasticCarousel>(null);
     const scrollRef = useRef<HTMLDivElement>(null);
     const handle = useFullScreenHandle();
+    const actionHeight = 50;
+    const sliderHeight = 150;
+    const imageHeight = window.innerHeight - 150 - actionHeight - sliderHeight;
     return (
         <Dialog open={true} fullScreen maxWidth="xl">
             <DialogTitle style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -81,26 +84,24 @@ const AlbumDialog:FC<({
                     <ReactElasticCarousel {...props} ref={carouselRef}>
                         {imagesBig.map((image, index) => {
                             return (
-                            <div key={'album-item-' + image.name + '-' + index}>
-                                    <FullScreen handle={handle}>
-                                        <Image
-                                            src={image.url} 
-                                            alt={'Album photo ' + image.name} 
-                                            width={image.width}
-                                            height={image.height}
-                                            style={{
-                                                width: '100%', 
-                                                height: 500, 
-                                            }} 
-                                            priority
-                                        />
-                                    </FullScreen>
+                                <div key={'album-item-' + image.name + '-' + index}>
+                                    <Image
+                                        src={image.url} 
+                                        alt={'Album photo ' + image.name} 
+                                        width={image.width}
+                                        height={image.height}
+                                        style={{
+                                            width: 'auto',
+                                            height: imageHeight
+                                        }} 
+                                        priority
+                                    />
                                 </div>
                             );
                         })}
                     </ReactElasticCarousel>
                 </StyleSheetManager>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: actionHeight }}>
                     <IconButton onClick={() => {
                         setPlaying(!playing);
                     }}>{playing ? <Pause /> : <PlayArrow /> }</IconButton>
@@ -109,7 +110,8 @@ const AlbumDialog:FC<({
                         setPlaying(false);
                     }}><Fullscreen /></IconButton>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', overflowX: 'auto', gap: gapSpacing }} ref={scrollRef}>
+                <FullScreenWidget item={imagesBig[currentIndex]} handle={handle} />
+                <div className='scroll' style={{ display: 'flex', alignItems: 'center', overflowX: 'auto', gap: gapSpacing, height: sliderHeight }} ref={scrollRef}>
                     {
                         imagesSmall.map((image, index) => {
                             const active = currentIndex === index;
@@ -127,7 +129,7 @@ const AlbumDialog:FC<({
                                             height: imageWidth,
                                             objectFit: 'cover',
                                             borderRadius: 8,
-                                            border: active ? '4px solid white' : '4px'
+                                            border: active ? '4px solid #ff7777' : '4px'
                                         }} 
                                     />
                                 </div>
@@ -140,6 +142,34 @@ const AlbumDialog:FC<({
                 <Button onClick={onHide} variant="outlined">Đóng</Button>
             </DialogActions>
         </Dialog>
+    );
+}
+
+const FullScreenWidget:FC<({ item: ImageData, handle: FullScreenHandle })> = ({ item, handle }) => {
+    return (
+        <FullScreen handle={handle}>
+            {handle.active && (
+                <>
+                    { handle.active && (
+                        <IconButton style={{ position: 'absolute', top: 12, right: 12 }} onClick={() => handle.exit()}><CloseRounded /></IconButton>
+                    ) }
+                    <Image
+                        src={item.url} 
+                        alt={'Album photo full screen ' + item.name} 
+                        width={item.width}
+                        height={item.height}
+                        style={ item.width > item.height ? {
+                            width: '100%',
+                            height: 'auto'
+                        } : {
+                            width: 'auto',
+                            height: '100%'
+                        }} 
+                        priority
+                    />
+                </>
+            )}
+        </FullScreen>
     );
 }
 

@@ -61,18 +61,18 @@ const UserItem:FC<({ userName: string, imageUrl: string, fatherName: string, mot
                     <Image src={imageUrl} alt={userName} width={800} height={800} style={{ width: '100%', height: 'auto', objectFit: 'cover' }} priority />
                 </Grid2>
                 <Grid2 size={{ xs: 12, sm: 6, md: 8, lg: 7, xl: 6 }} sx={{ padding: 5 }}>
-                    <div className="great-vibes" style={{ fontSize: 26, display: 'flex', alignItems: 'center', justifyContent: justifyContent }}>
+                    <div className="great-vibes" style={{ fontSize: 26, display: 'flex', alignItems: 'center', justifyContent: justifyContent, marginBottom: 8 }}>
                         <span>{userName}</span>
                         <a href={facebookUrl} target="_blank" style={{ width: 24, height: 24, marginLeft: 12 }}>
                             <FacebookIcon />
                         </a>
                         </div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: justifyContent }}>
-                        <span>Con ông: </span>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: justifyContent, letterSpacing: 1, marginBottom: 8 }}>
+                        <span style={{ fontWeight: '500' }}>Con ông: &nbsp;&nbsp;</span>
                         <span style={{ fontSize: 16, fontWeight: 'bold', textTransform: 'uppercase' }}>{fatherName}</span>
                     </div>
-                    <div style={{ marginBottom: 20, display: 'flex', alignItems: 'center', justifyContent: justifyContent }}>
-                        <span>Con bà: </span>
+                    <div style={{ marginBottom: 20, display: 'flex', alignItems: 'center', justifyContent: justifyContent, letterSpacing: 1 }}>
+                        <span style={{ fontWeight: '500' }}>Con bà: &nbsp;&nbsp;</span>
                         <span style={{ fontSize: 16, fontWeight: 'bold', textTransform: 'uppercase' }}>{motherName}</span>
                     </div>
                     <div style={{ marginBottom: 20, textAlign: 'justify' }}>{description}</div>

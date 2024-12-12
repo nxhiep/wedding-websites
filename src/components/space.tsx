@@ -1,5 +1,5 @@
 const Space = () => {
-    return (<div style={{ height: 100 }}></div>);
+    return (<div className="space-height"></div>);
 }
 
 export default Space;

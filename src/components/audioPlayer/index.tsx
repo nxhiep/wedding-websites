@@ -33,7 +33,7 @@ const MyAudioPlayer = () => {
                 controls
             />
             { turnOnButton && (
-                <div style={{ position: 'fixed', bottom: 40, left: 40, zIndex: 1, color: 'blue', cursor: 'pointer' }} onClick={() => {
+                <div style={{ position: 'fixed', bottom: 40, left: 40, zIndex: 3, color: 'grey', cursor: 'pointer' }} onClick={() => {
                     const value = !playing;
                     setPlaying(value);
                     if(value) {

@@ -62,7 +62,7 @@ const Album = () => {
                         onClick={(_, item) => setCurrentImage(item.alt ?? '')}
                     />
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
-                    <Button variant="contained" onClick={() => setCurrentImage('')}>TẤT CẢ HÌNH ẢNH</Button>
+                    <Button className="all-images-button" variant="contained" onClick={() => setCurrentImage('')}>TẤT CẢ HÌNH ẢNH</Button>
                 </div>
                 </Container>
                 { typeof currentImage === 'string' && (

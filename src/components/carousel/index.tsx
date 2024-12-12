@@ -5,13 +5,14 @@ import isPropValid from '@emotion/is-prop-valid';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Countdown from 'react-countdown';
 import Carousel, { ReactElasticCarouselProps } from '../react-elastic-carousel';
 import { StyleSheetManager } from 'styled-components';
 import { ImagesConfig } from '../../config/images';
 import LoadingWidget from '../loadingWidget';
 import WebTitle from '../webTitle';
+import { useMediaQuery, useTheme } from '@mui/material';
 
 const FirstBannerCarousel = () => {
     const [loaded, setLoaded] = useState(false);
@@ -27,10 +28,12 @@ const FirstBannerCarousel = () => {
             window.removeEventListener('resize', onResize);
         }
     }, []);
+    const theme = useTheme();
+    const isSM = useMediaQuery(theme.breakpoints.down('sm'));
     if(!loaded) {
         return <LoadingWidget />
     }
-    const carouselHeight = width * 2 / 5;
+    const carouselHeight = isSM ? width * 2 / 3 : width * 2 / 5;
     const props: ReactElasticCarouselProps = {
         isRTL: false,
         showArrows: true,
@@ -79,38 +82,44 @@ const FirstBannerCarousel = () => {
                     })}
                 </Carousel>
             </StyleSheetManager>
-            <div style={{ position: 'absolute', zIndex: 1, width: '100%', height: '100%', top: 0, left: 0 }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', height: 'calc(100% - 50px)' }}>
-                    <WebTitle size={70} color='white' />
-                    <div style={{ fontSize: 30, color: 'white', textAlign: 'center', letterSpacing: 5, marginBottom: 50 }}>{Config.description}</div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <Countdown
-                            date={1736150400000}
-                            className='my-count-down'
-                            renderer={(props) => {
-                                return (
-                                    <div className='count-down-content'>
-                                        <div>
-                                            <div>{props.days}</div>
-                                            <div>Ngày</div>
-                                        </div>
-                                        <div>
-                                            <div>{props.hours}</div>
-                                            <div>Giờ</div>
-                                        </div>
-                                        <div>
-                                            <div>{props.minutes}</div>
-                                            <div>Phút</div>
-                                        </div>
-                                        <div>
-                                            <div>{props.seconds}</div>
-                                            <div>Giây</div>
-                                        </div>
+            <CountDownWidget isSM={isSM} />
+        </div>
+    );
+}
+
+const CountDownWidget:FC<({ isSM: boolean })> = ({ isSM }) => {
+    return (
+        <div style={{ position: 'absolute', zIndex: 1, width: '100%', height: '100%', top: 0, left: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', height: 'calc(100% - 50px)' }}>
+                <WebTitle size={isSM ? 40 : 70} color='white' />
+                <div style={{ fontSize: isSM ? 20 : 30, color: 'white', textAlign: 'center', letterSpacing: 5, marginBottom: 50 }}>{Config.description}</div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', zoom: isSM ? 0.6 : 1 }}>
+                    <Countdown
+                        date={1736150400000}
+                        className='my-count-down'
+                        renderer={(props) => {
+                            return (
+                                <div className='count-down-content'>
+                                    <div>
+                                        <div>{props.days}</div>
+                                        <div>Ngày</div>
                                     </div>
-                                );
-                            }}
-                        />
-                    </div>
+                                    <div>
+                                        <div>{props.hours}</div>
+                                        <div>Giờ</div>
+                                    </div>
+                                    <div>
+                                        <div>{props.minutes}</div>
+                                        <div>Phút</div>
+                                    </div>
+                                    <div>
+                                        <div>{props.seconds}</div>
+                                        <div>Giây</div>
+                                    </div>
+                                </div>
+                            );
+                        }}
+                    />
                 </div>
             </div>
         </div>

@@ -69,18 +69,24 @@ const Guestbook = () => {
             <Container>
                 <Grid2 container spacing={2} alignItems={'stretch'} height={400}>
                     <Grid2 size={{ xs: 12, sm: 6 }} height={'100%'}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: 20, border: '1px solid #ddd', borderRadius: 12, height: '100%' }}>
-                            <input ref={userNameRef} className="guestbook-text-style playfair-display" placeholder="Họ Tên (*)" />
-                            <input ref={emailRef} className="guestbook-text-style playfair-display" placeholder="Email" />
-                            <TextareaAutosize ref={contentRef} className="guestbook-text-style playfair-display" placeholder="Lời chúc của bạn (*)" minRows={5} />
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 12 }}>
-                                <Button size="large" color="primary" variant="contained" onClick={onSendMessage}>Gửi</Button>
+                        <div className="form-input">
+                            <div className="form-input-content">
+                                <div className="row-1">
+                                    <input ref={userNameRef} className="guestbook-text-style playfair-display" placeholder="Họ Tên (*)" />
+                                    <input ref={emailRef} className="guestbook-text-style playfair-display" placeholder="Email" />
+                                </div>
+                                <TextareaAutosize ref={contentRef} className="guestbook-text-style playfair-display" placeholder="Lời chúc của bạn (*)" minRows={5} />
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 12 }}>
+                                    <Button size="large" color="primary" variant="contained" onClick={onSendMessage}>Gửi</Button>
+                                </div>
                             </div>
                         </div>
                     </Grid2>
                     <Grid2 size={{ xs: 12, sm: 6 }} height={'100%'}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: 20, border: '1px solid #ddd', borderRadius: 12, height: '100%' }}>
-                            <ListReview reviews={reviews} />
+                        <div className="form-input">
+                            <div className="form-input-content">
+                                <ListReview reviews={reviews} />
+                            </div>
                         </div>
                     </Grid2>
                 </Grid2>
@@ -101,12 +107,7 @@ const ListReview:FC<{reviews: Review[]}> = ({ reviews }) => {
         <List style={{ overflowY: 'auto' }} className="scroll">
             { reviews.map((item, index) => {
                 return (
-                    <ListItem key={'review-item-' + index} style={{ borderBottom: '1px solid #ddd' }}>
-                        <ListItemAvatar>
-                            <Person />
-                        </ListItemAvatar>
-                        <ListItemText primary={item.userName} secondary={item.content}></ListItemText>
-                    </ListItem>
+                        <ListItemText key={'review-item-' + index} primary={item.userName} secondary={item.content}></ListItemText>
                 );
             }) }
         </List>

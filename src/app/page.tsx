@@ -36,14 +36,14 @@ export default function Home() {
 				<WeddingEvent />
 				<Space />
 				<Album />
-				<Space />
-				<Guestbook />
+				{/* <Space />
+				<Guestbook /> */}
 				<Space />
 				<HappyWedding />
 				<Space />
 				<Thanks />
 			</main>
-			<StaticWidgets />
+			{/* <StaticWidgets /> */}
 		</body>
 	);
 }
