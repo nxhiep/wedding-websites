@@ -18,8 +18,8 @@ const WeddingEvent = () => {
                 <Grid2 size={{ xs: 12, sm: 6, md: 4, xl: 3 }} justifyContent={'center'} alignItems={'center'} display={'flex'}>
                     <EventItem 
                         title="Tiệc cưới nhà gái"
-                        address="Số 14, Ngách 1, Ngõ 137, Đường Lê Văn Tám, Phường Đồng Tâm, TP Yên Bái"
-                        date="9h00 - 01/01/2025"
+                        address="Nhà hàng Đại Vượng, Số 60, Đường Lê Lợi, Phường Đồng Tâm, TP Yên Bái"
+                        date="11h00 - 01/01/2025"
                         image={ImagesConfig.events[1]}
                         addressMap="https://maps.app.goo.gl/7smS2h2FC45g5QYv5"
                     />
@@ -28,7 +28,7 @@ const WeddingEvent = () => {
                     <EventItem 
                         title="Tiệc cưới nhà trai"
                         address="Số 4/134 Đại Khối, Phường Đông Cương, TP Thanh Hoá"
-                        date="9h00 - 03/01/2025"
+                        date="15h00 - 03/01/2025"
                         image={ImagesConfig.events[0]}
                         addressMap="https://maps.app.goo.gl/4D4JCXXdnZ32ERf87"
                     />
