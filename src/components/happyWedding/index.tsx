@@ -11,7 +11,6 @@ const HappyWedding = () => {
                 title="Mừng cưới"
                 description="Hộp mừng cưới"
             />
-
             <Grid2 container spacing={2} justifyContent={'center'}>
                 <Grid2 container size={{ xs: 12, sm: 6, md: 4, xl: 3 }} alignItems={'stretch'} justifyContent={'center'}>
                     <InfoItem
@@ -46,6 +45,7 @@ const InfoItem:FC<({
     location: string
     image: string
 })> = ({ accountName, accountNumber, bankName, location, title, image }) => {
+
     return (
         <div style={{ 
             width: 350, 
