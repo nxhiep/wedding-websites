@@ -28,7 +28,7 @@ export default function Home() {
 		<body>
 			<Header />
 			<main className="main">
-				<MyAudioPlayer />
+				{/* <MyAudioPlayer /> */}
 				<MyCarousel />
 				<Space />
 				<CoupleWidget />

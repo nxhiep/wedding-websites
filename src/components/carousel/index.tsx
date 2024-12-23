@@ -30,6 +30,7 @@ const FirstBannerCarousel = () => {
     }, []);
     const theme = useTheme();
     const isSM = useMediaQuery(theme.breakpoints.down('sm'));
+    const isXS = useMediaQuery(theme.breakpoints.down('xs'));
     if(!loaded) {
         return <LoadingWidget />
     }
@@ -82,16 +83,16 @@ const FirstBannerCarousel = () => {
                     })}
                 </Carousel>
             </StyleSheetManager>
-            <CountDownWidget isSM={isSM} />
+            <CountDownWidget isSM={isSM} isXS={isXS} />
         </div>
     );
 }
 
-const CountDownWidget:FC<({ isSM: boolean })> = ({ isSM }) => {
+const CountDownWidget:FC<({ isSM: boolean, isXS: boolean })> = ({ isSM, isXS }) => {
     return (
         <div style={{ position: 'absolute', zIndex: 1, width: '100%', height: '100%', top: 0, left: 0 }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', height: 'calc(100% - 50px)' }}>
-                <WebTitle size={isSM ? 40 : 70} color='white' />
+                <WebTitle size={isSM ? (isXS ? 30 : 35) : 70} color='white' />
                 <div style={{ fontSize: isSM ? 20 : 30, color: 'white', textAlign: 'center', letterSpacing: 5, marginBottom: 50 }}>{Config.description}</div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', zoom: isSM ? 0.6 : 1 }}>
                     <Countdown

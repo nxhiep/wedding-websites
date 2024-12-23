@@ -6,7 +6,7 @@ const Header = () => {
         <header className="header">
             <div className="header-bg">
                 <div style={{ width: 40 }}></div>
-                <WebTitle size={35} />
+                <WebTitle size={30} />
                 <Navbar />
             </div>
         </header>
